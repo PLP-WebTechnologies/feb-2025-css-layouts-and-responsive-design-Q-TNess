@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>INTRO TO CSS GRID</title>
+
+        <style>
+            body{
+                background-color: #fcf5ed; /*light brown*/
+                color: #fff; /*white*/
+                font-family: "Nunito Semibold";
+                text-align: center;
+            }
+            #content{
+                display: grid;
+                grid-auto-rows: repeat(3,minmax(150px,auto));
+                grid-template-columns: 20% 30% 30%;
+                grid-gap: 10px;
+            }
+            #content div{ 
+                background: #de37a1; /*EACH DIV IS GONNA HAVE THIS BACKGROUND COLOR*/
+                padding: 30px;  
+            }
+            /* styling div children to be colored evenly charcoal */
+            #content div:nth-child(even){
+                background: #777;
+            }
+
+            /* span item 1 (heading) across 3 columns*/
+            .grid_item1{
+                grid-column-start: span 3;
+            }
+
+            .grid_item1 h1{
+                text-align: left;
+            }
+            
+            /* span the FOOTER across 3 columns */
+            .grid_item6{
+                grid-column-start: span 3;
+            }
+
+            /* put the item5 in column line 3 */
+            .grid_item5{
+                justify-self: center;
+            }
+
+            .grid_item3 p,
+            .grid_item4 p,
+            .grid_item5 p{
+                border: 3px solid white;
+                padding: 5px;
+            } 
+
+            /* span NAV across 2 rows */
+            .grid_item2{
+              grid-row: span 2;
+            }
+
+             /* MEDIA QUERIES */
+            @media (max-width: 768px) {
+            #content {
+                grid-template-columns: 1fr;
+            }
+
+            .grid_item1,
+            .grid_item2,
+            .grid_item3,
+            .grid_item4,
+            .grid_item5,
+            .grid_item6 {
+                grid-column: span 1;
+                grid-row: auto;
+            }
+        }  
+
+            @media (min-width: 769px) and (max-width: 1024px) {
+            #content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .grid_item1,
+            .grid_item6 {
+                grid-column: span 2;
+            }
+
+            .grid_item2 {
+                grid-row: auto;
+            }
+        }   
+        </style>
+    </head>
+
+    <body>
+        <div id="content"> <!--ACTS AS A GRID-->
+            <div class="grid_item1">
+                <h1>FLORALS</h1>
+            </div>
+            <div class="grid_item2">
+                <nav>
+                    <ul>
+                      <li><a href="#home">Home</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="grid_item3">
+                <h2>Types of Flowers</h2>
+                <p><strong>Tulips</strong> <br>
+                    Tulips are spring-blooming perennial herbaceous bulbiferous geophytes in the Tulipa genus. 
+                    Their flowers are usually large, showy, and brightly coloured, generally red, orange, pink, yellow, or white. 
+                    They often have a different coloured blotch at the base of the tepals, internally. <br>
+                    <img src="images/tulips.jpg" alt="tulips" width="100px" height="auto">
+                </p>
+            </div>
+
+            <div class="grid_item4">
+                <p><strong>Sunflower</strong> <br>
+                    Sunflowers (Helianthus) are admired for their vibrant, sunny appearance and impressive height.  
+                    They often have a different coloured blotch at the base of the tepals, internally.
+                    The common sunflower is harvested for its edible oily seeds, which are often eaten as a snack food. <br>
+                    <img src="images/sunflower.jpg" alt="sunflower" width="100px" height="auto">
+                </p>
+            </div>
+
+            <div class="grid_item5">    
+                <p><strong>Roses</strong> <br>
+                    Roses (Rosa spp.) are one of the most popular and beloved flowering plants in the world, known for their beauty, fragrance, and versatility. 
+                    A rose is either a woody perennial flowering plant of the genus Rosa, in the family Rosaceae, or the flower it bears. There are over three hundred species and tens of thousands of cultivars. <br>
+                    <img src="images/roses1.jpg" alt="roses" width="100px" height="auto">
+                    <img src="images/roses2.jpg" alt="roses" width="100px" height="auto">
+                    <img src="images/rose3.jpg" alt="roses" width="100px" height="auto">
+                </p>
+            </div>
+            <div class="grid_item6">
+                <p>Email: info@floral.com</p>
+                <p>Mobile: +216 345 67890</p>
+                &copy; 2025
+            </div>
+        </div>
+    </body>
+</html>
